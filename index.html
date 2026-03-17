@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Твій внутрішній спокій під час зовнішнього хаосу | Тренування мозку</title>
+    
+    <!-- GoatCounter Analytics -->
+    <script>
+        (function() {
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = '//gc.zgo.at/count.js';
+            script.setAttribute('data-goatcounter', 'https://pre-order.goatcounter.com/count');
+            script.onerror = function() {};
+            document.head.appendChild(script);
+        })();
+    </script>
+    
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-bg-dark: #0A0E27;
+            --color-bg-darker: #050811;
+            --color-primary: #00D4FF;
+            --color-primary-light: #4DE3FF;
+            --color-accent: #00FFC8;
+            --color-text: #E8ECF0;
+            --color-text-light: #B0B8C4;
+            --color-white: #FFFFFF;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 0.75rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --border-radius: 12px;
+            --icon-size: 64px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--color-text);
+            line-height: 1.5;
+            background-color: var(--color-bg-dark);
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3 {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        p {
+            margin-bottom: var(--spacing-xs);
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 1.75rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            text-align: center;
+            letter-spacing: 0.02em;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            color: var(--color-bg-dark);
+            box-shadow: 0 4px 16px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-primary svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* ===== LAYOUT ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Одна колонка — класичний лендинг на desktop */
+        .two-column {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+            padding: var(--spacing-sm) 0;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* ===== HERO ===== */
+        .hero-block {
+            position: static;
+            text-align: center;
+        }
+
+        .hero-block h1 {
+            color: var(--color-text);
+            font-size: 2rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .hero-subtitle {
+            color: var(--color-text-light);
+            font-size: 1rem;
+            margin-bottom: var(--spacing-md);
+            line-height: 1.6;
+        }
+
+        /* ===== ІКОНКИ — великі, 3D-об'ємні з градієнтами ===== */
+        .icon-box {
+            width: var(--icon-size);
+            height: var(--icon-size);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(0 4px 12px rgba(0, 212, 255, 0.35));
+        }
+
+        .icon-box svg,
+        .icon-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Секція "Ваш мозок..." */
+        .brain-problems {
+            margin: var(--spacing-sm) 0;
+        }
+
+        .brain-problems h2,
+        .brain-problems > p {
+            text-align: center;
+        }
+
+        .brain-problems h2 {
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* На desktop — три блоки в лінію */
+        .brain-items {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-sm);
+        }
+
+        .brain-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-md);
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            border-radius: var(--border-radius);
+        }
+
+        .brain-item .icon-box {
+            width: 72px;
+            height: 72px;
+        }
+
+        .brain-item h3 {
+            color: var(--color-primary-light);
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        .brain-item p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Секція "Жодної магії" з графіком трансформації сигналу */
+        .physiology-block {
+            margin: var(--spacing-sm) 0;
+            padding: var(--spacing-md);
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: var(--border-radius);
+        }
+
+        .physiology-block h2,
+        .physiology-block p {
+            text-align: center;
+        }
+
+        .physiology-block h2 {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .physiology-graph {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin: var(--spacing-md) 0;
+        }
+
+        .physiology-graph .physiology-icon-img {
+            width: 100%;
+            max-width: 220px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .physiology-arrow {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            transform: rotate(90deg);
+        }
+
+        .physiology-graph .wave-chart {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .physiology-legend {
+            font-size: 0.85rem;
+            color: var(--color-primary-light);
+            text-align: center;
+            margin-top: var(--spacing-xs);
+        }
+
+        .physiology-block p {
+            margin-top: var(--spacing-sm);
+            font-size: 0.9rem;
+        }
+
+        /* Фото hero */
+        .hero-image {
+            width: 100%;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: brightness(0.9);
+        }
+
+        /* Технологія — 4 картки */
+        .tech-section h2,
+        .tech-section > p {
+            text-align: center;
+        }
+
+        .tech-section h2 {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-sm);
+        }
+
+        .tech-card {
+            padding: var(--spacing-md);
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+
+        .tech-card .icon-box {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto var(--spacing-xs);
+        }
+
+        .tech-card h3 {
+            color: var(--color-primary-light);
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .tech-card p {
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        /* Чому це важливо */
+        .why-important {
+            padding: var(--spacing-md);
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+
+        .why-important .icon-box {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto var(--spacing-sm);
+        }
+
+        .why-important h3 {
+            color: var(--color-accent);
+        }
+
+        /* CTA форма */
+        .cta-form-block {
+            padding: var(--spacing-md);
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.08) 0%, rgba(0, 255, 200, 0.08) 100%);
+            border: 1px solid rgba(0, 212, 255, 0.25);
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+
+        .cta-form-block h2,
+        .cta-form-block p {
+            text-align: center;
+        }
+
+        .cta-form-block h2 {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .cta-form-block .benefits-checklist {
+            text-align: left;
+            display: inline-block;
+        }
+
+        .benefits-checklist {
+            list-style: none;
+            margin: var(--spacing-sm) 0;
+        }
+
+        .benefits-checklist li {
+            padding: 0.35rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+        }
+
+        .benefits-checklist li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-weight: 700;
+        }
+
+        /* Форма */
+        .form-group {
+            margin: var(--spacing-md) 0;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: var(--border-radius);
+            font-family: inherit;
+            font-size: 1rem;
+            background-color: rgba(10, 14, 39, 0.8);
+            color: var(--color-text);
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            background-color: var(--color-bg-dark);
+        }
+
+        .form-group input::placeholder {
+            color: var(--color-text-light);
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: var(--border-radius);
+            font-family: inherit;
+            font-size: 1rem;
+            background-color: rgba(10, 14, 39, 0.8);
+            color: var(--color-text);
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        /* Модальне вікно */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-md);
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: var(--color-bg-dark);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            max-width: 480px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content h2 {
+            color: var(--color-text);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: var(--spacing-sm);
+            right: var(--spacing-sm);
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--color-text-light);
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            color: var(--color-text);
+        }
+
+        .honeypot {
+            position: absolute;
+            left: -9999px;
+            opacity: 0;
+        }
+
+        /* Sticky CTA — тільки на мобільних, завжди видима внизу */
+        .sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: linear-gradient(180deg, transparent 0%, var(--color-bg-dark) 25%);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .sticky-cta.visible {
+            display: block;
+        }
+
+        .sticky-cta .btn {
+            width: 100%;
+            margin: 0;
+        }
+
+        /* ===== МОБІЛЬНА АДАПТИВНІСТЬ ===== */
+        @media (min-width: 901px) {
+            .sticky-cta { display: none !important; }
+        }
+
+        @media (max-width: 900px) {
+            .sticky-cta {
+                display: block !important;
+            }
+
+            .two-column {
+                max-width: none;
+                padding-bottom: 5rem;
+            }
+
+            /* На мобільному — блоки один під одним */
+            .brain-items {
+                grid-template-columns: 1fr;
+            }
+
+            .brain-item {
+                flex-direction: row;
+                text-align: left;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 600px) {
+            :root {
+                --icon-size: 48px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            .hero-block h1 {
+                font-size: 1.6rem;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .brain-item .icon-box {
+                width: 56px;
+                height: 56px;
+            }
+
+            .physiology-graph .physiology-icon-img {
+                max-width: 160px;
+            }
+
+            .physiology-arrow {
+                width: 36px;
+                height: 36px;
+            }
+
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+
+            .btn {
+                padding: 0.875rem 1.5rem;
+                font-size: 0.95rem;
+            }
+
+            /* Модальне вікно — компактно на мобільному */
+            .modal {
+                padding: 0.5rem;
+            }
+
+            .modal-content {
+                width: 100%;
+                max-width: none;
+                max-height: 90vh;
+                padding: 1rem;
+            }
+
+            .modal-content h2 {
+                font-size: 1.25rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .modal .form-group {
+                margin-bottom: 0.5rem;
+            }
+
+            .modal .form-group label {
+                font-size: 0.9rem;
+            }
+
+            .modal .form-group input,
+            .modal .form-group select,
+            .modal .form-group textarea {
+                padding: 0.6rem;
+                font-size: 0.95rem;
+            }
+
+            .modal .form-group textarea {
+                min-height: 60px;
+            }
+
+            .modal .btn {
+                padding: 0.75rem 1rem;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="two-column">
+            <!-- Hero -->
+            <div class="hero-block">
+                <h1>Твій внутрішній спокій під час зовнішнього хаосу</h1>
+                <p class="hero-subtitle">Розумна гарнітура, що допомагає швидше сфокусуватися на роботі та відновлювати сили, коли з'являється хоча б кілька хвилин тиші.</p>
+                <button type="button" class="btn btn-primary" onclick="openOrderModal()">
+                    Хочу ранній доступ
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Hero зображення -->
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop" alt="Робочий простір, кава, ноутбук — і момент внутрішньої тиші серед щоденного напруження" loading="lazy">
+            </div>
+
+            <!-- Ваш мозок...нік будь-коли -->
+            <section class="brain-problems">
+                <h2>Вашому мозку зараз важче, ніж будь-коли</h2>
+                <p style="margin-bottom: var(--spacing-md);">Постійний стрес, тривоги та напруження виснажують внутрішній ресурс.<br>Навіть коли з'являється час на роботу чи відпочинок, мозку часто складно швидко переключитися в потрібний стан.</p>
+                <div class="brain-items">
+                    <div class="brain-item">
+                        <div class="icon-box">
+                            <img src="images/anxiety.png" alt="Постійна тривога">
+                        </div>
+                        <div class="brain-item-text">
+                            <h3>Постійна тривога</h3>
+                            <p>Важко «вимкнути» голову після обстрілів, сирен або поганих новин.</p>
+                        </div>
+                    </div>
+                    <div class="brain-item">
+                        <div class="icon-box">
+                            <img src="images/distraction.png" alt="Розфокус">
+                        </div>
+                        <div class="brain-item-text">
+                            <h3>Розфокус</h3>
+                            <p>Коли нарешті є світло й час працювати, потрібно встигнути все швидко — але концентрація не повертається.</p>
+                        </div>
+                    </div>
+                    <div class="brain-item">
+                        <div class="icon-box">
+                            <img src="images/fatigue.png" alt="Втома">
+                        </div>
+                        <div class="brain-item-text">
+                            <h3>Втома</h3>
+                            <p>Навіть після короткого відпочинку залишається відчуття порожнечі, виснаження та перевантаження.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Жодної магії, тільки фізіологія -->
+            <section class="physiology-block">
+                    <h2>Жодної магії — лише фізіологія</h2>
+                    <div class="physiology-graph">
+                        <img src="images/physiology-waves.png" alt="Мозкові хвилі" class="physiology-icon-img">
+                        <img src="images/arrow-transform.png" alt="" class="physiology-arrow" aria-hidden="true">
+                        <div>
+                            <img src="images/physiology-chart.png" alt="Трансформація сигналу" class="wave-chart">
+                            <p class="physiology-legend">від складної до простої</p>
+                        </div>
+                    </div>
+                    <p>Гарнітура не «втручається» у ваш мозок. Вона лише зчитує природні сигнали та допомагає вам краще розуміти власний стан.</p>
+                    <p>Це як дзеркало для нервової системи: ви бачите, коли справді зосереджені, коли виснажені, а коли починаєте відновлюватися.</p>
+            </section>
+
+            <!-- Як це працює -->
+            <section class="tech-section">
+                <h2>Технологія, що відстежує мозкову активність</h2>
+                <p>Це не просто додаток. Це легка гарнітура, яка зчитує мікросигнали мозку — подібно до того, як смарт-годинник вимірює пульс.</p>
+                <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="icon-box">
+                                <img src="images/sound.png" alt="Звукова підказка">
+                            </div>
+                            <h3>Звукова підказка</h3>
+                            <p>Коли увага розсіюється, додаток подає м'який звуковий сигнал, допомагаючи повернутися до більш спокійного та зібраного стану.</p>
+                        </div>
+                        <div class="tech-card">
+                            <div class="icon-box">
+                                <img src="images/recovery.png" alt="Режим відновлення">
+                            </div>
+                            <h3>Режим відновлення</h3>
+                            <p>Є лише 10 хвилин між справами? Гарнітура допоможе швидше перейти в стан глибшого розслаблення та відновлення.</p>
+                        </div>
+                        <div class="tech-card">
+                            <div class="icon-box">
+                                <img src="images/offline.png" alt="Офлайн-робота">
+                            </div>
+                            <h3>Офлайн-робота</h3>
+                            <p>Додаток працює без інтернету. Ви можете тренувати фокус і відновлення навіть у сховищі чи під час блекауту.</p>
+                        </div>
+                        <div class="tech-card">
+                            <div class="icon-box">
+                                <img src="images/resilience.png" alt="Стійкість">
+                            </div>
+                            <h3>Стійкість до стресу</h3>
+                            <p>З часом мозок навчається швидше повертатися до норми після напружених подій і інформаційного перевантаження.</p>
+                        </div>
+                </div>
+            </section>
+
+            <!-- Чому це важливо -->
+            <section class="why-important">
+                <h2 style="margin-bottom: var(--spacing-sm);">Чому це важливо?</h2>
+                <div class="icon-box">
+                    <img src="images/battery.png" alt="Економія енергії">
+                </div>
+                <h3>Економія енергії</h3>
+                <p>Менше сил іде на «розкачку». Ви вчитеся швидше входити в робочий стан і м'якше виходити з перевантаження.</p>
+                <h3 style="margin-top: var(--spacing-md);">Більше контролю над своїм станом</h3>
+                <p>Коли ви краще розумієте сигнали власного тіла, стає легше не просто «триматися», а реально відновлювати ресурс.</p>
+            </section>
+
+            <!-- CTA блок -->
+            <section class="cta-form-block" id="waitlist">
+                <h2>Станьте частиною першої групи замовників</h2>
+                <p style="margin-bottom: var(--spacing-md);">Ми на етапі фінального запуску. Перші користувачі отримають особливі умови та зможуть вплинути на розвиток продукту.</p>
+                <p style="margin-bottom: var(--spacing-sm);">Що ви отримаєте:</p>
+                <ul class="benefits-checklist">
+                    <li><strong>40% знижки на гарнітуру</strong></li>
+                    <li><strong>Пріоритетне відвантаження</strong></li>
+                    <li><strong>Можливість вплинути на розвиток продукту</strong></li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <!-- Sticky CTA для мобільних -->
+    <div class="sticky-cta" id="stickyCta">
+        <button type="button" class="btn btn-primary" onclick="openOrderModal()">Хочу ранній доступ</button>
+    </div>
+
+    <!-- Модальне вікно замовлення -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeOrderModal()">&times;</button>
+            <h2>Замовити гарнітуру</h2>
+            <form id="orderForm" action="https://formsubmit.co/c1d72d56b4c84fba98998cdeb428e3f2--" method="POST" onsubmit="handleOrderSubmit(event)">
+                <input type="text" name="_honeypot" class="honeypot" tabindex="-1" autocomplete="off">
+                <input type="hidden" name="_next" value="thanks.html">
+                <input type="hidden" name="_subject" value="Передзамовлення — ранній доступ (pre-order-fin)">
+                <input type="hidden" name="source" value="pre-order-fin">
+                <input type="hidden" name="ip" id="formIp">
+                <input type="hidden" name="device" id="formDevice">
+                <input type="hidden" name="browser" id="formBrowser">
+                <input type="hidden" name="screen" id="formScreen">
+                <input type="hidden" name="language" id="formLanguage">
+                <input type="hidden" name="referrer" id="formReferrer">
+                <input type="hidden" name="submitted_at" id="formSubmittedAt">
+                <div class="form-group">
+                    <label for="modalName">Ім'я *</label>
+                    <input type="text" id="modalName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="modalEmail">Email (необов'язково)</label>
+                    <input type="email" id="modalEmail" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="modalPhone">Телефон *</label>
+                    <input type="tel" id="modalPhone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="modalContact">Де можна зв'язатись (необов'язково)</label>
+                    <select id="modalContact" name="contact">
+                        <option value="viber" selected>Viber</option>
+                        <option value="telegram">Telegram</option>
+                        <option value="whatsapp">WhatsApp</option>
+                        <option value="signal">Signal</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="modalComment">Коментар або питання (необов'язково)</label>
+                    <textarea id="modalComment" name="comment"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Відправити замовлення</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Кеш IP — завантажується при відкритті модалки
+        var cachedIp = '';
+
+        function detectDevice() {
+            var ua = navigator.userAgent || '';
+            if (/android/i.test(ua)) return 'Android';
+            if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) return 'iOS';
+            if (/Windows Phone/i.test(ua)) return 'Windows Phone';
+            if (/Mac/.test(ua)) return 'Mac';
+            if (/Win/.test(ua)) return 'Windows';
+            if (/Linux/.test(ua)) return 'Linux';
+            return 'Інше';
+        }
+
+        function detectBrowser() {
+            var ua = navigator.userAgent || '';
+            var match = ua.match(/(Chrome|Firefox|Safari|Edge|Opera|OPR|MSIE|Trident)[\/\s](\d+)/);
+            if (match) return match[1].replace('OPR', 'Opera').replace('Trident', 'IE') + ' ' + match[2];
+            return 'Невідомо';
+        }
+
+        function openOrderModal() {
+            var modal = document.getElementById('orderModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            // Отримуємо IP асинхронно (готове до моменту відправки форми)
+            if (!cachedIp) {
+                fetch('https://api.ipify.org?format=json').then(function(r) { return r.json(); })
+                    .then(function(d) { cachedIp = d.ip || ''; })
+                    .catch(function() {});
+            }
+        }
+
+        function closeOrderModal() {
+            var modal = document.getElementById('orderModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function fillFormMetadata(form) {
+            form.querySelector('#formIp').value = cachedIp || '—';
+            form.querySelector('#formDevice').value = detectDevice();
+            form.querySelector('#formBrowser').value = detectBrowser();
+            form.querySelector('#formScreen').value = (screen.width || '') + '×' + (screen.height || '');
+            form.querySelector('#formLanguage').value = navigator.language || navigator.userLanguage || '—';
+            form.querySelector('#formReferrer').value = document.referrer || '(прямий вхід)';
+            form.querySelector('#formSubmittedAt').value = new Date().toISOString();
+        }
+
+        function handleOrderSubmit(event) {
+            var form = event.target;
+            var honeypot = form.querySelector('input[name="_honeypot"]').value;
+            if (honeypot) {
+                event.preventDefault();
+                return false;
+            }
+            fillFormMetadata(form);
+            try {
+                if (window.goatcounter && typeof window.goatcounter.count === 'function') {
+                    window.goatcounter.count({ path: 'preorder_modal_submit', event: true });
+                }
+            } catch (e) {}
+        }
+
+        document.getElementById('orderModal').addEventListener('click', function(e) {
+            if (e.target === this) closeOrderModal();
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                var href = this.getAttribute('href');
+                if (href !== '#' && href !== '#!') {
+                    e.preventDefault();
+                    var target = document.querySelector(href);
+                    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Sticky CTA — показувати після скролу за межі hero (тільки на мобільному)
+        (function() {
+            var stickyCta = document.getElementById('stickyCta');
+            var hero = document.querySelector('.hero-block');
+            if (!stickyCta || !hero) return;
+            if (window.matchMedia('(min-width: 901px)').matches) return; // тільки мобільний
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    stickyCta.classList.toggle('visible', !entry.isIntersecting);
+                });
+            }, { threshold: 0, rootMargin: '-80px 0px 0px 0px' });
+            observer.observe(hero);
+        })();
+    </script>
+</body>
+</html>
